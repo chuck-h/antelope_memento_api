@@ -10,7 +10,7 @@ router.post('/v1/chain', function (req, res, next) {
   console.log(v1ChainUrl);
   return proxy(v1ChainUrl)(req, res, next);
 })
-router.get('/', function (req, res, next) {
+router.get('/v1/chain', function (req, res, next) {
   const v1ChainUrl = `${req.protocol}://${req.hostname}:${chainApiPort}${req.baseUrl}${req.path}`;
   res.redirect(307, v1ChainUrl);
 })
