@@ -8,9 +8,8 @@ const chainApiPort = "8888";
 router.use('/', function (req, res, next) {
   const v1ChainUrl = `${req.protocol}://${req.hostname}:${chainApiPort}${req.baseUrl}${req.path}`;
   console.log(`v1Chain: ${req.method} ${v1ChainUrl}`);
-  return proxy(v1ChainUrl, {filter: function(req, res) {
-    return req.method == 'POST'}
-  })(req, res, next);
+  
+  return proxy(v1ChainUrl, {preserveHostHdr: true})(req, res, next);
 })
 
 module.exports = router;
