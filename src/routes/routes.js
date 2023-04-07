@@ -7,7 +7,7 @@ const historyRoute = require("../modules/history/route");
 const transactionRoute = require("../modules/transactionStatus/route");
 const graphqlRoute = require("../modules/graphql/route");
 
-router.use("/v1/chain/", v1ChainRoute);
+router.use("/v1/chain", v1ChainRoute);
 router.use("/", healthRoute);
 router.use("/", historyRoute);
 router.use("/", transactionRoute);
