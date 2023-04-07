@@ -4,7 +4,11 @@ const router = express.Router();
 
 const chainApiPort = "8888";
 
-router.use(function (req, res, next) {
+router.post('/', function (req, res, next) {
+  const v1ChainUrl = `${req.protocol}://${req.hostname}:${chainApiPort}${req.baseUrl}${req.path}`;
+  res.redirect(307, v1ChainUrl);
+})
+router.get('/'. function (req, res, next) {
   const v1ChainUrl = `${req.protocol}://${req.hostname}:${chainApiPort}${req.baseUrl}${req.path}`;
   res.redirect(307, v1ChainUrl);
 })
