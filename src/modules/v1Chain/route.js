@@ -8,8 +8,8 @@ const chainApiPort = "8888";
 router.use('/', proxy(`127.0.0.1:${chainApiPort}`, {
     proxyReqPathResolver: function(req) {
       return `${req.baseUrl}${req.path}`;
-    }
+    },
+    preserveHostHdr: true
   }));
-//router.use('/', proxy(`${req.protocol}://${req.hostname}:${chainApiPort}${req.baseUrl}${req.path}`));
 
 module.exports = router;
